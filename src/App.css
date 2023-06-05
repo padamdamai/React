@@ -1,0 +1,91 @@
+* {
+    margin: 0px;
+}
+html{
+    scroll-behavior: smooth;
+}
+
+nav {
+    display: flex;
+    align-items: center;
+    height: 70px;
+    background-color: black;
+
+
+}
+
+nav>h3,
+nav>h4 {
+    background-color: black;
+    color: white;
+    margin-right: 23px;
+}
+
+main {
+    padding: 53px;
+    background-image: url('/home/_$/Documents/my-app/src/images/React.png');
+    background-repeat: no-repeat;
+    /* background-position-x: center;
+    background-position-y: bottom; */
+    background-position: right 50%;
+
+}
+
+.main-ul {
+    padding-top: 23px;
+    letter-spacing: 0.002em;
+    line-height: 33px;
+    font-family: 'Trebuchet MS';
+
+
+}
+
+.main-title {
+    font-size: 44px;
+    font-weight: bold;
+}
+
+.main-ul>li::marker {
+    font-size: 1.2rem;
+    color: rgb(99, 99, 233);
+
+}
+
+section {
+    background: rgb(223, 216, 216);
+    padding: 43px;
+    display: flex;
+    justify-content: center;
+}
+.card-collection{
+    display: inline-block;
+}
+.card {
+    width: 19rem;
+    height: 345px;
+    background: white;
+    margin-left: 30px;
+    padding-top: 34px;
+    padding: 20px;
+    box-shadow: 5px 10px #cfc9c9;
+    border-radius: 23px;
+}
+
+.btn {
+    text-decoration: none;
+}
+
+click {
+    margin-left: 23px;
+}
+
+.card-badge {
+    position: relative;
+    top: 40px;
+    left: 10px;
+    width: 74px;
+    background-color: white;
+    padding: 5px 6px;
+    border-radius: 2px;
+    font-weight: bold;
+}
