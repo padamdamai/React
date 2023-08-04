@@ -25,3 +25,29 @@ return <div>
   </div>
 </div>
 }
+
+
+
+
+
+
+///// ///    another user of state different method  ////////////
+
+
+import React  from "react";
+
+export default function App(){
+const [IsExited , ChangeFunction ]= React.useState(true)
+
+  return <div>
+    <div>are you feelling exited to learn reat </div>
+    <div></div>
+    <div onClick={() => { ChangeFunction(prestate => !prestate)}}>{IsExited === true ? "yes" :"no"}</div>
+  </div>
+}
+
+// the above expression is done in short hand properties of the followind code
+
+// function onclickHere(){
+//   changeFunction(prestate =>!prestate)
+// }
