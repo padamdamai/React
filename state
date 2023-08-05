@@ -1,3 +1,4 @@
+1)
 import React  from "react";
 import Header from "./Components/Header";
 import Meme from "./Components/Meme.js";
@@ -32,7 +33,7 @@ return <div>
 
 
 ///// ///    another user of state different method  ////////////
-
+2)
 
 import React  from "react";
 
@@ -60,7 +61,7 @@ const [IsExited , ChangeFunction ]= React.useState(true)
 
 
 //////using state inside state (state bhitra state) to add the items in react /////////
-
+3)
 import React  from "react";
 
  export default function Test(){
@@ -88,7 +89,7 @@ function addItems(){
 
 
 
-
+4)
 ////// building a meme generator Complex state :Object ///////   state with object
 import React from 'react'
 
@@ -107,6 +108,57 @@ let starIcon = contact.isFavourite? "https://upload.wikimedia.org/wikipedia/comm
       <img src= "https://clipart-library.com/images/kTKo7BB8c.png"  className='article-image'/>
       <div className='card-info'>
         <img  className='star-img' src={starIcon}/>
+        <h1 className='card-name'>{contact.firstName} {contact.lastName}</h1>
+       <div className='card-small-contact'>
+       <p className="card-contact">{contact.phone}</p>
+        <div className='card-gmail'>{contact.email}</div>
+       </div>
+      </div>
+    </article>
+  </main>
+
+}
+
+
+
+
+5)
+// updating state object
+
+import React from 'react'
+
+export default function Apps(){
+
+  const [contact ,setContact] = React.useState({
+    firstName : "Padam",
+    lastName : "Damai",
+    phone : "984089821",
+    email : "padamdamai888@gmail.com",
+    isFavourite : false
+  })
+  function ToggleIcon(){
+    setContact(preContact => {
+     return {
+
+      // firstName : "Padam",
+      // lastName : "Damai",
+      // phone : "984089821",
+      // email : "padamdamai888@gmail.com",
+      // isFavourite : false
+      // isFavourite : !preContact.isFavourite
+
+      ...preContact, // expandng the contact information or including the content  (if we didnt include this code than there wont be any content displayed)
+      isFavourite : !preContact.isFavourite
+     }
+    })
+    // this is obtainer as similar as the above given
+  }
+let starIcon = contact.isFavourite? "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e5/Full_Star_Yellow.svg/800px-Full_Star_Yellow.svg.png":"https://clipart-library.com/images/LcdoE7Ebi.gif" 
+  return <main>
+    <article>
+      <img src= "https://clipart-library.com/images/kTKo7BB8c.png"  className='article-image'/>
+      <div className='card-info'>
+        <img  className='star-img' onClick={ToggleIcon} src={starIcon}/>
         <h1 className='card-name'>{contact.firstName} {contact.lastName}</h1>
        <div className='card-small-contact'>
        <p className="card-contact">{contact.phone}</p>
