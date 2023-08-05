@@ -51,3 +51,37 @@ const [IsExited , ChangeFunction ]= React.useState(true)
 // function onclickHere(){
 //   changeFunction(prestate =>!prestate)
 // }
+
+
+
+
+
+
+
+
+//////using state inside state (state bhitra state) to add the items in react /////////
+
+import React  from "react";
+
+ export default function Test(){
+
+  // using state
+  const [ThingsArray, setThingsElement] = React.useState(["things 1" ,"things 2", "things 3"])
+
+const thingsElemtnt = ThingsArray.map( Things => <p key={Things}>{Things}</p>)
+function addItems(){
+    setThingsElement(prestate => {
+      return[...prestate , `things ${ThingsArray.length + 1}`]
+    })
+    
+
+                  //  Here meaning of  ...prestate is spreading the pre existing array 
+}
+
+  return <div>
+    <button  onClick={addItems}>Click</button>
+    {thingsElemtnt}
+  </div>
+}
+
+
