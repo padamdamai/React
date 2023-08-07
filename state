@@ -169,3 +169,59 @@ let starIcon = contact.isFavourite? "https://upload.wikimedia.org/wikipedia/comm
   </main>
 
 }
+
+
+
+////////////////////// using props and state in above program i.e(5)
+
+
+/////////new file StarSelect.js file created 
+
+import React from "react";
+
+export default function Star(props){
+    const starIcon =  props.isFilled? "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e5/Full_Star_Yellow.svg/800px-Full_Star_Yellow.svg.png":"https://clipart-library.com/images/LcdoE7Ebi.gif" 
+
+return <div>
+ <img  className='star-img' onClick={props.handleClick} src={starIcon}/>
+</div>
+}
+
+///////////main files app.js 
+import React from 'react'
+import Star from './Components/StarSelect.js'
+export default function Apps(){
+
+  const [contact ,setContact] = React.useState({
+    firstName : "Padam",
+    lastName : "Damai",
+    phone : "984089821",
+    email : "padamdamai888@gmail.com",
+    isFavourite : false
+  })
+  function ToggleIcon(){
+    setContact(preContact => {
+     return {
+      ...preContact, // expandng the contact information or including the content  (if we didnt include this code than there wont be any content displayed)
+      isFavourite : !preContact.isFavourite
+     }
+    })
+    // this is obtainer as similar as the above given
+  }
+// let starIcon = contact.isFavourite? "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e5/Full_Star_Yellow.svg/800px-Full_Star_Yellow.svg.png":"https://clipart-library.com/images/LcdoE7Ebi.gif" 
+  return <main>
+    <article>
+      <img src= "https://clipart-library.com/images/kTKo7BB8c.png"  className='article-image'/>
+      <div className='card-info'>
+        {/* <img  className='star-img' onClick={ToggleIcon} src={starIcon}/> */}
+        <Star isFilled={contact.isFavourite} handleClick= {ToggleIcon}/>
+        <h1 className='card-name'>{contact.firstName} {contact.lastName}</h1>
+       <div className='card-small-contact'>
+       <p className="card-contact">{contact.phone}</p>
+        <div className='card-gmail'>{contact.email}</div>
+       </div>
+      </div>
+    </article>
+  </main>
+
+}
