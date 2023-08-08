@@ -1,4 +1,4 @@
-/////// index.js file  ////////////////////
+1))))/////// index.js file  ////////////////////
 
 import React from 'react';
 import ReactDOM from 'react-dom/client';
@@ -34,6 +34,50 @@ export default function Apps(props){
   }
   const [Boxed ,setBoxed] = React.useState(Boxes)
   const boxesItems = Boxed.map(items => <p className = "box" style={styling} key={Boxed.id}>{items.id}</p>)
+
+
+
+return <div>
+<Body darkMode={true}/>
+<div>this are the data inside the box   <br/>{boxesItems}</div>
+</div>
+
+}
+
+
+
+
+2)))) // changeing the color according to its condition 
+
+file box.js////
+
+import React from "react";
+
+export default function Box(props){
+const styled = {
+    backgroundColor : props.on ? '#22222222' : 'none'
+}
+    return <div>
+        <p className = "box" style= {styled}></p>
+    </div>
+}
+
+Apps.js//////
+
+import React from 'react'
+import Header from './Components/Header.js';
+import Body from './Components/Body.js';
+import Boxes from './Components/Boxes.js';
+import Box from './Components/box.js';
+
+
+export default function Apps(props){
+  const styling = {
+    backgroundColor: props.darkMode ? '#2222' : '#ccccccccc',
+    color:"white"
+  }
+  const [Boxed ,setBoxed] = React.useState(Boxes)
+  const boxesItems = Boxed.map(items => (<Box key={items.id} on={items.on}  />))
 
 
 
