@@ -1,0 +1,45 @@
+/////// index.js file  ////////////////////
+
+import React from 'react';
+import ReactDOM from 'react-dom/client';
+import './index.css';
+import App from './App';
+import reportWebVitals from './reportWebVitals';
+
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(
+  <React.StrictMode>
+    <App darkMode = {false}/>
+  </React.StrictMode>
+);
+
+// If you want to start measuring performance in your app, pass a function
+// to log results (for example: reportWebVitals(console.log))
+// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
+reportWebVitals();
+
+
+////////////// Apps.js ///////////////////
+
+import React from 'react'
+import Header from './Components/Header.js';
+import Body from './Components/Body.js';
+import Boxes from './Components/Boxes.js';
+
+
+export default function Apps(props){
+  const styling = {
+    backgroundColor: props.darkMode ? '#22222222' : '#ccccccccc',
+    color:"white"
+  }
+  const [Boxed ,setBoxed] = React.useState(Boxes)
+  const boxesItems = Boxed.map(items => <p className = "box" style={styling} key={Boxed.id}>{items.id}</p>)
+
+
+
+return <div>
+<Body darkMode={true}/>
+<div>this are the data inside the box   <br/>{boxesItems}</div>
+</div>
+
+}
