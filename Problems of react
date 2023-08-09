@@ -1,0 +1,51 @@
+
+/* when the box is clicked it should give clicked at each boxes in the colsole      /*
+
+
+
+////box.js file
+
+
+import React from "react";
+
+export default function Box(props){
+
+const styled = {
+    backgroundColor :props.on ? '#22222222' : 'transparent'
+}
+    return (
+    <div 
+    
+    className = "box" 
+    style= {styled} 
+    onClick={props.handleClick}
+    >
+    </div>
+    )
+}
+
+
+
+/////apps.js
+
+import React from 'react'
+import Boxes from './Components/Boxes.js';
+import Box from './Components/box.js';
+
+
+export default function Apps(){
+  const [Boxed ,setBoxed] = React.useState(Boxes)
+  function toggles(){
+    console.log("clicked!")
+  }
+
+  const boxesItems = Boxed.map(items => (<Box key={items.id} on={items.on} handleClick = {toggles} />))
+
+
+
+return <div>
+
+<div>this are the data inside the box   <br/>{boxesItems}</div>
+</div>
+
+}
