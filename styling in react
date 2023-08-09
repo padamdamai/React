@@ -166,9 +166,8 @@ export default function Apps(){
 
   const boxesItems = Boxed.map(items => (<Box 
     key={items.id}
-    selectId = {items.id}
      on={items.on} 
-     handleClick = {toggles} />))
+     handleClick = {() => toggles(items.id)} />))
 
 
 
@@ -195,7 +194,7 @@ const styled = {
     
     className = "box" 
     style= {styled} 
-    onClick={() => props.handleClick(props.selectId)}
+    onClick={props.handleClick}
     >
     </div>
     )
