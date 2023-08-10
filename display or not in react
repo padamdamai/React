@@ -1,0 +1,71 @@
+
+
+////Jokes.js
+
+import React from "react";
+
+
+export default function Jokes(props){
+
+    const [isShown ,setIsShown]= React.useState(false)
+function toggle(){
+   setIsShown(previousValue => !previousValue)
+}
+
+    return <div>
+        {/* {props.setup && <h3>{props.setup}</h3>} */}
+      { isShown && <p>{props.punchline}</p>}
+        <button onClick={toggle}>Show punchline</button>
+    </div>
+}
+
+const con1 = true;
+const con2 = true;
+if(con1 && con2){
+    //code will run 
+}
+
+const con3 = true;
+const con4 = false;
+if(con3 && con4){
+    //code will not run 
+}
+
+
+//such like above in  in react conditional statement is stated as below (full concept is given below)
+
+const set1 = true;
+if(set1 && console.log("hello react ")){
+    // it will display hello react because set1 is true
+}
+
+
+const set2 = false;
+if(set2 && console.log("hello react ")){
+    // it will not display anythings  because set2 is false
+}
+
+
+
+
+
+
+///Apps.js
+
+import React from 'react'
+import Jokes from './Components/Jokes.js';
+
+
+export default function Apps(){
+  const birthday = <i >"I can't wait to see her face light up when she opens it"</i>
+  const ran = <i>"He just ran someWhere "</i>
+
+return <div>
+  <h3>I got my daughter a fridge for her bithday.</h3>
+<Jokes punchline = {birthday}
+/>
+<h3>HOw did the hacker escape the police</h3>
+<Jokes punchline= {ran}/>
+</div>
+
+}
