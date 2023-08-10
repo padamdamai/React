@@ -69,3 +69,32 @@ return <div>
 </div>
 
 }
+
+
+
+
+2)))
+
+
+///app.js
+
+
+import React from 'react'
+import Jokes from './Components/Jokes.js';
+
+
+export default function Apps(){
+  const [messages ,setMessages ] = React.useState(['a','b'])
+
+  function toggle(){
+   
+
+  }
+
+return <div>
+ {(messages.length > 0 ) &&  <div>You have ({messages.length}) unread this messages</div>}
+
+</div>
+
+}
+
