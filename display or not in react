@@ -25,6 +25,30 @@ if(con1 && con2){
     //code will run 
 }
 
+
+3))))
+
+
+///apps.js
+
+import React from "react";
+
+
+export default function Jokes(props){
+
+    const [isShown ,setIsShown]= React.useState(false)
+function toggle(){
+   setIsShown(previousValue => !previousValue)
+}
+
+    return <div>
+        {/* {props.setup && <h3>{props.setup}</h3>} */}
+      { isShown && <p>{props.punchline}</p>}
+        <button onClick={toggle}>{isShown && "Hide Puchline" || !isShown  && "Show Punchline"} </button>
+    </div>
+}
+
+
 const con3 = true;
 const con4 = false;
 if(con3 && con4){
