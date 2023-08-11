@@ -24,3 +24,33 @@ export default function Form(){
     </form>
   </div>
 }
+
+2))) Update first name in every key stroke 
+
+import React from "react";
+
+
+export default function Form(){
+  const [firstName ,setFirstName] = React.useState("")
+
+  console.log(firstName)
+  function handleChange(event){
+   setFirstName(event.target.value)
+  
+  }
+  
+
+
+  return <div>
+    <form>
+
+   <input
+    type="text"
+     placeholder="Name" 
+     onChange={handleChange}
+     id="firstName"
+     />
+
+    </form>
+  </div>
+}
