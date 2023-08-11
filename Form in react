@@ -25,7 +25,7 @@ export default function Form(){
   </div>
 }
 
-2))) Update first name in every key stroke 
+2))) Update first name in every key stroke ----------------------------------------------------------------------------------------------------------------
 
 import React from "react";
 
@@ -56,7 +56,7 @@ export default function Form(){
 }
 
 
-3))))
+3))))----------------------------------------------------------------------------------------------------------------
 
 // Bulding a meme generator | forms state object 
 
@@ -90,6 +90,50 @@ export default function Form(){
    <input  type="text" placeholder="First Name" onChange={handleChange} name = "firstName" />
    <input  type="text" placeholder=" Last Name" onChange={handleChange} name = "lastName"/>
  <input  type="email" placeholder="G-mail" onChange={handleChange} name = "E_mail"/>
+
+    </form>
+  </div>
+}
+
+
+
+
+
+3))))----------------------------------------------------------------------------------------------------------------
+
+// form in react  :Tetarea
+
+import React from "react";
+
+export default function Form(){
+  const [formData ,setFormData] = React.useState({
+    firstName : "",
+    lastName : "",
+    E_mail : "",
+    comment :""
+  })
+
+  console.log(formData)
+
+  function handleChange(event){
+    setFormData(preFormData => {
+      return {
+        ...preFormData,
+        [event.target.name ]: event.target.value
+      }
+    })
+  
+  
+  }
+  
+  return <div>
+    <form>
+
+   <input  type="text" placeholder="First Name" onChange={handleChange} value={formData.firstName} name = "firstName" />
+   <input  type="text" placeholder=" Last Name" onChange={handleChange} value={formData.lastName} name = "lastName"/>
+   <input  type="email" placeholder="G-mail" onChange={handleChange}    value={formData.E_mail} name = "E_mail"/>
+   <textarea  rows= "5" cols="23" value={formData.comment} onChange={handleChange} placeholder="Comment" name="comment"/>
+
 
     </form>
   </div>
