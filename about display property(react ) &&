@@ -69,3 +69,21 @@ return <div>
 </div>
 
 }
+
+
+2))))
+///// READ /UNREAD MESSAGES DISPLAY 
+apps.js////
+
+import React from "react";
+
+export default function Condition(){
+  //using state
+const [messages,setMessages] = React.useState([])
+
+
+  return <div>
+{messages.length > 0 ? 
+ <p>Your have {messages.length} {messages.length === 1 ? 'message':"messages" }</p>: <p>you have unread a the messages</p>}
+  </div>
+}
