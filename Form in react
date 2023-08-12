@@ -134,6 +134,62 @@ export default function Form(){
    <input  type="email" placeholder="G-mail" onChange={handleChange}    value={formData.E_mail} name = "E_mail"/>
    <textarea  rows= "5" cols="23" value={formData.comment} onChange={handleChange} placeholder="Comment" name="comment"/>
 
+    </form>
+  </div>
+}
+
+
+
+
+4)))))) CHECKBOX -----------------------------------------------------------------------------------------------------------------------
+
+
+// form in react  :Checkbox
+
+import React from "react";
+
+export default function Form(){
+  const [formData ,setFormData] = React.useState({
+    firstName : "",
+    lastName : "",
+    E_mail : "",
+    comment :"",
+    isFriendly:false
+
+  })
+
+  console.log(formData)
+
+  function handleChange(event){
+
+    const {name,value,checked,type} = event.target
+    setFormData(preFormData => {
+      return {
+        ...preFormData,
+        // [event.target.name ]:event.target.value     
+          // {instead of defining in this way  we can do in shortcut way}
+        [name] :type === "checked" ? checked:value
+      }
+    })
+  
+  
+  }
+  
+  return <div>
+    <form>
+   <input  type="text" placeholder="First Name" onChange={handleChange} value={formData.firstName} name = "firstName" /><br/>
+   <input  type="text" placeholder=" Last Name" onChange={handleChange} value={formData.lastName} name = "lastName"/><br/>
+   <input  type="email" placeholder="G-mail" onChange={handleChange}    value={formData.E_mail} name = "E_mail"/><br/>
+   <textarea  rows= "3" cols="23" value={formData.comment} onChange={handleChange} placeholder="Comment" name="comment"/><br/>
+
+
+     {/* checkbox hold only boolean value i.e either true or false   */}
+   <input type="checkbox" id="isFriendly" name="isFriendly" checked={formData.isFriendly} 
+  //  there is not the "value" property but there is checked property because checkbox checked either it is false or true
+    onChange={handleChange} />
+   <label htmlFor="isFriendly">Are you friendly ?</label><br/>
+
+
 
     </form>
   </div>
