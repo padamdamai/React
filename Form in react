@@ -25,7 +25,7 @@ export default function Form(){
   </div>
 }
 
-2))) Update first name in every key stroke ----------------------------------------------------------------------------------------------------------------
+2)))  --------------------------------Update first name in every key stroke--------------------------------------------------------------------------------
 
 import React from "react";
 
@@ -56,7 +56,7 @@ export default function Form(){
 }
 
 
-3))))----------------------------------------------------------------------------------------------------------------
+3))))---------------------------------------------STATE OBJECT IN FORM-------------------------------------------------------------------
 
 // Bulding a meme generator | forms state object 
 
@@ -99,7 +99,7 @@ export default function Form(){
 
 
 
-3))))----------------------------------------------------------------------------------------------------------------
+3))))---------------------------------------------TEXT AREA-------------------------------------------------------------------
 
 // form in react  :Tetarea
 
@@ -141,7 +141,7 @@ export default function Form(){
 
 
 
-4)))))) CHECKBOX -----------------------------------------------------------------------------------------------------------------------
+4))))))  ---------------------------------------------------CHECKBOX--------------------------------------------------------------------
 
 
 // form in react  :Checkbox
@@ -197,7 +197,7 @@ export default function Form(){
 
 
 
-4)))))) RADIOBOX  -----------------------------------------------------------------------------------------------------------------------
+4))))))   ----------------------------------------------RADIOBOX-------------------------------------------------------------------------
 
 
 // form in react  :Radiobox
@@ -273,7 +273,7 @@ export default function Form(){
 
 
 
-5)))))) slect and option -----------------------------------------------------------------------------------------------------------------------
+5))))))  ---------------------------------------SELECT & OPTION--------------------------------------------------------------------------------
 
 
 
@@ -360,6 +360,111 @@ export default function Form(){
   
 </select>
 
+    </form>
+  </div>
+}
+
+
+
+
+
+6))----------------------------------------SUBMITTING THE FORM------------------------------------------------------------------------------
+
+
+
+// form in react  :submitting the form data useing buttom
+
+import React from "react";
+
+export default function Form(){
+  const [formData ,setFormData] = React.useState({
+    firstName : "",
+    lastName : "",
+    E_mail : "",
+    comment :"",
+    isFriendly:false,
+    employment: "",
+    favColor : ""
+
+  })
+
+  // console.log(formData)
+
+  function handleChange(event){
+
+    const {name,value,checked,type} = event.target
+    setFormData(preFormData => {
+      return {
+        ...preFormData,
+        // [event.target.name ]:event.target.value     
+          // {instead of defining in this way  we can do in shortcut way}
+        [name] :type === "checked" ? checked:value
+      }
+    })
+  
+  
+  }
+  
+  function handleSubmit(event){
+    event.preventDefault()  
+    //  it prevent a page from being refresh if we didnt use that the all data will get vanished
+
+    // submitToApi(formData) => we should pass this formData to apifunction but for now we dont have that api function 
+
+    console.log(formData)
+  }
+  return <div>
+    <form onSubmit={handleSubmit}>
+   <input  type="text" placeholder="First Name" onChange={handleChange} value={formData.firstName} name = "firstName" /><br/>
+   <input  type="text" placeholder=" Last Name" onChange={handleChange} value={formData.lastName} name = "lastName"/><br/>
+   <input  type="email" placeholder="G-mail" onChange={handleChange}    value={formData.E_mail} name = "E_mail"/><br/>
+   <textarea  rows= "3" cols="23" value={formData.comment} onChange={handleChange} placeholder="Comment" name="comment"/><br/>
+
+
+     {/* checkbox hold only boolean value i.e either true or false   */}
+   <input type="checkbox" id="isFriendly" name="isFriendly" checked={formData.isFriendly} 
+  //  there is not the "value" property but there is checked property because checkbox checked either it is false or true
+    onChange={handleChange} />
+   <label htmlFor="isFriendly">Are you friendly ?</label><br/>
+
+
+
+{/*  Now radio box */}
+
+<fieldset style={{width:223}}>
+
+  <legend>Current  employment</legend>
+<br/>
+  <input type="radio" name="employment" value="unemployment" onChange={handleChange}></input>
+  <label  htmlFor="Unemployment">Unemployment</label><br/>
+
+  <input type="radio" name="employment" value= "Part Time"  onChange={handleChange}></input>
+  <label  htmlFor="partTime">Part Time</label><br/>
+
+  <input type="radio" name="employment" value="Full TIme" onChange={handleChange}></input>
+  <label  htmlFor="fullTime">Full Time</label><br/>
+</fieldset>
+
+{/* in  radio box we should not use checked property because we need the value of the clicked on  */}
+
+
+
+{/* Now select option */}
+<br/>
+<label htmlFor="favColor">What is your favorite color?</label><br/>
+<select id="favColor" value={formData.favColor} onChange={handleChange} name="favColor">
+  
+  <option>--CHOOSE--</option>
+  <option value="green">Green</option>
+  <option value="yellow">Yellow</option>
+  <option value="blue">Blue</option>
+  <option value="brown">Brown</option>
+  <option value="pink">pink</option>
+  
+</select>
+<br/>
+
+<button>Submit</button>
     </form>
   </div>
 }
