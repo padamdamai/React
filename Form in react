@@ -194,3 +194,78 @@ export default function Form(){
     </form>
   </div>
 }
+
+
+
+4)))))) RADIOBOX  -----------------------------------------------------------------------------------------------------------------------
+
+
+// form in react  :Radiobox
+
+import React from "react";
+
+export default function Form(){
+  const [formData ,setFormData] = React.useState({
+    firstName : "",
+    lastName : "",
+    E_mail : "",
+    comment :"",
+    isFriendly:false,
+    employment: ""
+
+  })
+
+  console.log(formData)
+
+  function handleChange(event){
+
+    const {name,value,checked,type} = event.target
+    setFormData(preFormData => {
+      return {
+        ...preFormData,
+        // [event.target.name ]:event.target.value     
+          // {instead of defining in this way  we can do in shortcut way}
+        [name] :type === "checked" ? checked:value
+      }
+    })
+  
+  
+  }
+  
+  return <div>
+    <form>
+   <input  type="text" placeholder="First Name" onChange={handleChange} value={formData.firstName} name = "firstName" /><br/>
+   <input  type="text" placeholder=" Last Name" onChange={handleChange} value={formData.lastName} name = "lastName"/><br/>
+   <input  type="email" placeholder="G-mail" onChange={handleChange}    value={formData.E_mail} name = "E_mail"/><br/>
+   <textarea  rows= "3" cols="23" value={formData.comment} onChange={handleChange} placeholder="Comment" name="comment"/><br/>
+
+
+     {/* checkbox hold only boolean value i.e either true or false   */}
+   <input type="checkbox" id="isFriendly" name="isFriendly" checked={formData.isFriendly} 
+  //  there is not the "value" property but there is checked property because checkbox checked either it is false or true
+    onChange={handleChange} />
+   <label htmlFor="isFriendly">Are you friendly ?</label><br/>
+
+
+
+{/*  Now radio box */}
+
+<fieldset style={{width:223}}>
+
+  <legend>Current employment employment</legend>
+<br/>
+  <input type="radio" name="employment" value="unemployment" onChange={handleChange}></input>
+  <label  htmlFor="Unemployment">Unemployment</label><br/>
+
+  <input type="radio" name="employment" value= "Part Time"  onChange={handleChange}></input>
+  <label  htmlFor="partTime">Part Time</label><br/>
+
+  <input type="radio" name="employment" value="Full TIme" onChange={handleChange}></input>
+  <label  htmlFor="fullTime">Full Time</label><br/>
+</fieldset>
+
+{/* in  radio box we should not use checked property because we need the value of the clicked on  */}
+
+    </form>
+  </div>
+}
