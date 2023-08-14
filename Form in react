@@ -522,7 +522,7 @@ function submitFormData(event){
 
         }
         else{
-          // if(formData.newsLetter === false && formData.password === !(formData.conformPassword)){
+          // if(formData.newsLetter === false && formData.password !== formData.conformPassword){
             console.log("please recheck the password")
             // }  
         }
