@@ -28,19 +28,59 @@ body {
 }
 .form{
   display: grid;
-  grid-template:40px 40px /1fr 1fr;
+grid-template: 40px 40px / 1fr 1fr;
   gap: 17px;
   padding:23px;
 }
-.form-buttom{
-  grid-column: 1/-1;
+.form--buttom{
+  grid-column: 1 / -1;
   cursor: pointer;
   background-color: purple;
   color:white;
   font-size: 22px;
 }
-.form-input{
+.form-inputs{
 border-radius: 12px;
 text-indent:23px;
 }
+.image_meme{
+  max-width: 62%;
+  border: 2px solid black;
+ 
+}
+.Image__holder{
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  position: fixed;
+  
+}
 
+.firstText{
+  color:white;
+  transform: translate(23rem,8rem);
+  width: 37rem;
+  height: 8rem;
+  overflow-wrap: break-word;
+  font-size: 32px;
+  font-family: cursive;
+ 
+}
+.secondText{
+  color:white;
+  transform: translate(23rem,5rem);
+  width: 37rem;
+  height: 8rem;
+  overflow-wrap: break-word;
+  margin-top: 89px;
+  font-size: 32px;
+  font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+/* .article__holder{
+  max-width: 20px  ;
+  height:32px;
+  background:blue;
+  margin: 5rem 7rem 1rem;
+
+} */
