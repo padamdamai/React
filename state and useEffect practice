@@ -1,0 +1,45 @@
+//windowTracker.js 
+
+import React from 'react'
+import WindowTracker from "./Components/WindoeTracker.js"
+export default function App(){
+
+ const [ show, setShow ] = React.useState(true)
+
+function toggle(){
+  setShow(previousValue => !previousValue)
+}
+
+  return (
+
+    <div>
+<div className="container">
+    <button onClick = {toggle}> Toggle windowTracker  </button>
+</div>
+
+{show && <WindowTracker />}
+    </div>
+
+    )
+}
+
+
+
+///Apps.js
+
+import React from 'react'
+
+export default function App(){
+
+const [windowWidth , setWindowWidth] = React.useState(window.innerWidth)
+
+	React.useEffect( () => {
+	window.addEventListener( "resize" ,function(){
+		setWindowWidth(window.innerWidth)
+	})
+},[]) 
+return (
+		<h1> Window Width :{windowWidth}  </h1>
+
+		)
+}
