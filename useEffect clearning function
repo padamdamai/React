@@ -1,0 +1,61 @@
+>> APPS.JS
+
+
+//useEffect clearnup  function in react 
+
+
+
+import React from 'react'
+import WindowTracker from "./Components/WindoeTracker.js"
+export default function App(){
+
+ const [ show, setShow ] = React.useState(true)
+
+function toggle(){
+  setShow(previousValue => !previousValue)
+}
+
+  return (
+
+    <div>
+<div className="container">
+    <button onClick = {toggle}> Toggle windowTracker  </button>
+</div>
+
+{show && <WindowTracker />}
+    </div>
+
+    )
+
+}
+
+
+
+
+
+>>windowTracker.js
+
+import React from 'react'
+
+export default function App(){
+
+const [windowWidth , setWindowWidth] = React.useState(window.innerWidth)
+
+	React.useEffect( () => {
+	function watchWidth(){
+		console.log("setting up")
+		setWindowWidth(window.innerWidth)
+	}
+
+	window.addEventListener( "resize" ,watchWidth)
+
+	return function(){
+		console.log("cleaning up ")
+		window.removeEventListener("resize" ,watchWidth)
+	}
+},[]) 
+return (
+		<h1> Window Width :{windowWidth}  </h1>
+
+		)
+}
